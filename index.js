@@ -10,7 +10,7 @@ const getNextReviews = async (doc) => {
   const ref = db.collection('covid')
     .orderBy('date')
     .startAfter(doc || 0)
-    .limit(6);
+    .limit(3);
 
   const data = await ref.get();
 
@@ -26,7 +26,7 @@ const getNextReviews = async (doc) => {
       </div>
     `
   })
-  container.innerHTML += template;
+  container.innerHTML = template;
   loading.classList.remove('active');
   
   // update latest doc
@@ -46,6 +46,7 @@ window.addEventListener('DOMContentLoaded', () => getNextReviews());
 const loadMore = document.querySelector('.load-more button');
 
 const handleClick = () => {
+  console.log("Load more...")
   getNextReviews(latestDoc)
 }
 
