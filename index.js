@@ -22,7 +22,7 @@ const getNextReviews = async (doc) => {
       <div class="card">
         <h2>${record.date}</h2>
         <p>Written by ${record.country}</p>
-        <p>Rating - ${record.state} / 5</p>
+        <p>State ${record.state} / 5</p>
       </div>
     `
   })
