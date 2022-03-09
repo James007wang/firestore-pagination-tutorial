@@ -26,7 +26,7 @@ const getNextReviews = async (doc) => {
       </div>
     `
   })
-  container.innerHTML = template;
+  container.innerHTML += template;
   loading.classList.remove('active');
   
   // update latest doc
