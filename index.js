@@ -7,8 +7,8 @@ let latestDoc = null;
 const getNextReviews = async (doc) => {
   loading.classList.add('active');
 
-  const ref = db.collection('reviews')
-    .orderBy('createdAt')
+  const ref = db.collection('covid')
+    .orderBy('date')
     .startAfter(doc || 0)
     .limit(6);
 
@@ -17,12 +17,12 @@ const getNextReviews = async (doc) => {
   // output docs
   let template = '';
   data.docs.forEach(doc => {
-    const review = doc.data();
+    const record = doc.data();
     template += `
       <div class="card">
-        <h2>${review.name}</h2>
-        <p>Written by ${review.author}</p>
-        <p>Rating - ${review.rating} / 5</p>
+        <h2>${record.date}</h2>
+        <p>Written by ${record.country}</p>
+        <p>Rating - ${record.state} / 5</p>
       </div>
     `
   })
